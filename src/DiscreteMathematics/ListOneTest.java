@@ -3,8 +3,11 @@ package DiscreteMathematics;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class ListOneTest {
-    static final double eps = 0.001;
+    private static final double eps = 0.001;
     @Test
     public void testFloor() throws Exception {
         Assert.assertEquals(1, ListOne.floor(1.5));
@@ -33,5 +36,14 @@ public class ListOneTest {
     public void testModulo() throws Exception {
         Assert.assertEquals(4, ListOne.modulo(11, 7));
         Assert.assertEquals(0, ListOne.modulo(8, 4));
+    }
+
+    @Test
+    public void testGeneratePrimes() throws Exception {
+        List<Integer> expectedPrimes = Arrays.asList(2, 3, 5, 7, 11);
+        List<Integer> generatedPrimes = ListOne.GeneratePrimes(5, 15);
+
+        Assert.assertEquals(expectedPrimes.size(), generatedPrimes.size());
+        Assert.assertTrue(generatedPrimes.equals(expectedPrimes));
     }
 }
