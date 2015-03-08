@@ -30,20 +30,15 @@ public class ListOne {
         ArrayList<Integer> primes = new ArrayList<Integer>();
 
         boolean[] numbers = new boolean[count];
-
         numbers[0] = numbers[1] = false;
         for(int i = 2; i < count; i++)
             numbers[i] = true;
-
-        for(int i = 0; i < numbers.length; i++)
+        for(int i = 2; i < count; i++)
         {
             if(numbers[i])
             {
-                for (int j = i + 1; j < numbers.length; j++)
-                {
-                    if (numbers[j])
-                        numbers[j] = (j % i != 0);
-                }
+                for(int j = 2*i; j < count; j += i)
+                    numbers[j] = false;
             }
         }
 
