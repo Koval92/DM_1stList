@@ -53,4 +53,17 @@ public class ListOne {
 
         return primes;
     }
+
+    public static boolean isPermutation(ArrayList<Integer> numbers)
+    {
+        for(int i=0; i<numbers.size(); i++)
+        {
+            for(int j=i+1; j<numbers.size(); j++)
+            {
+                if(numbers.get(i).equals(numbers.get(j)))
+                    return false;
+            }
+        }
+        return true;
+    }
 }

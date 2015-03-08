@@ -3,6 +3,7 @@ package DiscreteMathematics;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,5 +46,14 @@ public class ListOneTest {
 
         Assert.assertEquals(expectedPrimes.size(), generatedPrimes.size());
         Assert.assertTrue(generatedPrimes.equals(expectedPrimes));
+    }
+
+    @Test
+    public void testIfPermutation() throws Exception {
+        Assert.assertTrue(ListOne.isPermutation(new ArrayList<Integer>(Arrays.asList(1, 2, 3))));
+        Assert.assertTrue(ListOne.isPermutation(new ArrayList<Integer>(Arrays.asList(3, 2, 1))));
+
+        Assert.assertFalse(ListOne.isPermutation(new ArrayList<Integer>(Arrays.asList(1, 2, 1))));
+        Assert.assertFalse(ListOne.isPermutation(new ArrayList<Integer>(Arrays.asList(1, 2, 3, 6, 7, 3, 8))));
     }
 }
