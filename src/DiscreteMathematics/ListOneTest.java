@@ -56,4 +56,45 @@ public class ListOneTest {
         Assert.assertFalse(ListOne.isPermutation(new ArrayList<Integer>(Arrays.asList(1, 2, 1))));
         Assert.assertFalse(ListOne.isPermutation(new ArrayList<Integer>(Arrays.asList(1, 2, 3, 6, 7, 3, 8))));
     }
+
+    @Test
+    public void testGeneratePermutations() throws Exception {
+        List<List<Integer>> permutations;
+
+        permutations = ListOne.generatePermutations(2);
+        Assert.assertTrue(permutations.size() == 2);
+        Assert.assertTrue(isDistinct(permutations));
+        //printPermutations(permutations);
+
+        permutations = ListOne.generatePermutations(3);
+        Assert.assertTrue(permutations.size() == 6);
+        Assert.assertTrue(isDistinct(permutations));
+        //printPermutations(permutations);
+
+        permutations = ListOne.generatePermutations(7);
+        Assert.assertTrue(permutations.size() == 5040);
+        Assert.assertTrue(isDistinct(permutations));
+        //printPermutations(permutations);
+    }
+
+    public void printPermutations(List<List<Integer>> perms)
+    {
+        System.out.println("Permutations:");
+        for(List<Integer> perm : perms)
+            System.out.println(perm);
+        System.out.println();
+    }
+
+    public boolean isDistinct(List<List<Integer>> list)
+    {
+        for(int i=0; i<list.size(); i++)
+        {
+            for(int j=i+1; j<list.size(); j++)
+            {
+                if(list.get(i).equals(list.get(j)))
+                    return false;
+            }
+        }
+        return true;
+    }
 }

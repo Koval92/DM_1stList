@@ -1,6 +1,7 @@
 package DiscreteMathematics;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ListOne {
@@ -65,5 +66,46 @@ public class ListOne {
             }
         }
         return true;
+    }
+
+    public static List<List<Integer>> generatePermutations(int range)
+    {
+        return new PermutationsGenerator(range).invoke();
+    }
+
+    private static class PermutationsGenerator {
+        private int range;
+        List<Integer> P;
+        List<List<Integer>> permutations;
+
+        public PermutationsGenerator(int range) {
+            this.range = range;
+            permutations = new ArrayList<List<Integer>>();
+            P = new ArrayList<Integer>();
+        }
+
+        public List<List<Integer>> invoke() {
+
+            for(int i=1; i<=range; i++)
+                P.add(i);
+            perm(range);
+
+            return permutations;
+        }
+
+        private void perm(int k)
+        {
+            if(k==1)
+                permutations.add(new ArrayList<Integer>(P));
+            else
+            {
+                for(int i=1; i<=k; i++)
+                {
+                    Collections.swap(P, i - 1, k - 1);
+                    perm(k - 1);
+                    Collections.swap(P, i - 1, k - 1);
+                }
+            }
+        }
     }
 }
