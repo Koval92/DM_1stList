@@ -2,6 +2,7 @@ package DiscreteMathematics;
 
 import org.junit.Assert;
 import org.junit.Test;
+import sun.applet.Main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,11 +51,11 @@ public class ListOneTest {
 
     @Test
     public void testIfPermutation() throws Exception {
-        Assert.assertTrue(ListOne.isPermutation(new ArrayList<Integer>(Arrays.asList(1, 2, 3))));
-        Assert.assertTrue(ListOne.isPermutation(new ArrayList<Integer>(Arrays.asList(3, 2, 1))));
+        Assert.assertTrue(ListOne.isPermutation(new ArrayList<>(Arrays.asList(1, 2, 3))));
+        Assert.assertTrue(ListOne.isPermutation(new ArrayList<>(Arrays.asList(3, 2, 1))));
 
-        Assert.assertFalse(ListOne.isPermutation(new ArrayList<Integer>(Arrays.asList(1, 2, 1))));
-        Assert.assertFalse(ListOne.isPermutation(new ArrayList<Integer>(Arrays.asList(1, 2, 3, 6, 7, 3, 8))));
+        Assert.assertFalse(ListOne.isPermutation(new ArrayList<>(Arrays.asList(1, 2, 1))));
+        Assert.assertFalse(ListOne.isPermutation(new ArrayList<>(Arrays.asList(1, 2, 3, 6, 7, 3, 8))));
     }
 
     @Test
@@ -85,13 +86,10 @@ public class ListOneTest {
         System.out.println();
     }
 
-    public boolean isDistinct(List<List<Integer>> list)
-    {
-        for(int i=0; i<list.size(); i++)
-        {
-            for(int j=i+1; j<list.size(); j++)
-            {
-                if(list.get(i).equals(list.get(j)))
+    public boolean isDistinct(List<List<Integer>> list) {
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).equals(list.get(j)))
                     return false;
             }
         }

@@ -28,7 +28,7 @@ public class ListOne {
     }
 
     public static List<Integer> GeneratePrimes(int k, int count) {
-        ArrayList<Integer> primes = new ArrayList<Integer>();
+        ArrayList<Integer> primes = new ArrayList<>();
 
         boolean[] numbers = new boolean[count];
         numbers[0] = numbers[1] = false;
@@ -80,8 +80,8 @@ public class ListOne {
 
         public PermutationsGenerator(int range) {
             this.range = range;
-            permutations = new ArrayList<List<Integer>>();
-            P = new ArrayList<Integer>();
+            permutations = new ArrayList<>();
+            P = new ArrayList<>();
         }
 
         public List<List<Integer>> invoke() {
@@ -96,7 +96,7 @@ public class ListOne {
         private void perm(int k)
         {
             if(k==1)
-                permutations.add(new ArrayList<Integer>(P));
+                permutations.add(new ArrayList<>(P));
             else
             {
                 for(int i=1; i<=k; i++)
@@ -107,5 +107,9 @@ public class ListOne {
                 }
             }
         }
+    }
+
+    public static void main(String[] t) {
+         new MainWindow();
     }
 }
